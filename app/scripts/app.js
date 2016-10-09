@@ -59,6 +59,16 @@ angular
         controller: 'GeneratedtreeCtrl',
         controllerAs: 'GeneratedTree'
       })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'about'
+      })
+      .when('/Login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'Login'
+      })
       .otherwise({
         redirectTo: '/'
       });
