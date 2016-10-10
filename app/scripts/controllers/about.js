@@ -1,5 +1,7 @@
 'use strict';
 
+// THIS CONTROLLER IS NOT DOING ANYTHING YOU SHOULD REMOVE ALL NOISE FROM YOUR PROJECT
+
 /**
  * @ngdoc function
  * @name phylogeneticTreesApp.controller:AboutCtrl

@@ -5,14 +5,15 @@
            onfocus="if (this.value == 'Search files') {this.value = ''; this.style.color = 'black'}">
     <input type="submit" align="right" style="background: red; color: white; border-color: red" value="Browse files">
     <input type="submit" align="right" style="background: red; color: white; border-color: red" value="Generate Phy Tree" disabled>
+    <a ng-href="{{ fileURL }}" style="background: dimgray; color: white;">Download</a>
   </div>
   <div class="scroll" style="overflow: auto; background: darkgrey; height: 500px">
         <div class="container" style="padding-top: 10px; vertical-align: middle; text-align: center">
       <div class="row">
         <div class="col-sm-1 col-md-3 col-lg-2" ng-repeat="file in myApi">
-            <div onclick="(this.style.color = 'red')" onblur="(this.style.color = 'black')" align="center" class="container-fluid">
+            <div ng-click='selected(this.file)' onclick="(this.style.color = 'red')" onblur="(this.style.color = 'black')" align="center" class="container-fluid">
               <img name="fileImage" class="img-responsive" src="images/treeFile.png" alt="" style="height: 30%; width: 30%">
-              <h4>{{file}}</h4>
+              <h4 id="{{file}}">{{file}}</h4>
             </div>
         </div>
       </div>

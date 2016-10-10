@@ -480,4 +480,41 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+  grunt.registerTask('deployToS3a', 'Deploying to S3 bucket', function(target){
+    var done = this.async();
+    var command = "/usr/bin/aws";
+
+    var child = grunt.util.spawn({
+      cmd: command,
+      args: 's3 sync --acl=public-read dist s3://phivhubsite'.split(" "),
+    }, function(error, result, code){
+      if(code != 0 && error !== null) grunt.fatal("Error sycing with S3 bucket.");
+      grunt.log.writeln(String(result).trim());
+      done();
+    });
+  });
+
+  grunt.registerTask('deployToS3b', 'Deploying to S3 bucket', function(target){
+    var done = this.async();
+    var command = "/usr/local/bin/aws";
+
+    var child = grunt.util.spawn({
+      cmd: command,
+      args: 's3 sync --acl=public-read dist s3://phivhubsite'.split(" "),
+    }, function(error, result, code){
+      if(code != 0 && error !== null) grunt.fatal("Error sycing with S3 bucket.");
+      grunt.log.writeln(String(result).trim());
+      done();
+    });
+  });
+
+  grunt.registerTask('deploya', [
+    'build',
+    'deployToS3a'
+  ]);
+  
+  grunt.registerTask('deployb', [
+    'build',
+    'deployToS3b'
+  ]);
 };
