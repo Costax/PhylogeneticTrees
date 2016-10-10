@@ -31,6 +31,8 @@ angular.module('phylogeneticTreesApp')
     });
 
     $scope.selected = function(id) {
+
+      $scope.fileURL = "https://s3.amazonaws.com/phivhubstorage/";
       $scope.fileURL = $scope.fileURL+id;
       if(selected.includes(id)){
         var index = selected.indexOf(id);
@@ -38,14 +40,24 @@ angular.module('phylogeneticTreesApp')
         console.log(selected);
         var target = document.getElementById(id);
         target.style.color = 'black';
+        $scope.fileURL = "https://s3.amazonaws.com/phivhubstorage/";
       }
       else{
         selected.push(id);
+        selected.forEach(unselect);
         console.log(selected);
         var target = document.getElementById(id);
         target.style.color = 'red';
       }
 
+    }
+
+    function unselect(item, index) {
+      var target = document.getElementById(selected[index]);
+      if(target.style.color === 'red' && index != selected.length - 1)
+      {
+        target.style.color = 'black';
+      }
     }
 
   });
