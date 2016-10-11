@@ -1,22 +1,26 @@
 <h1>File Manager</h1>
 <div class="w3-container" style="background: dimgray">
   <div class="container" style="padding-top: 8px; padding-bottom: 8px; color: lightgray">
-    <input type="text" value="Search files" onblur="if (this.value == '') {this.value = 'Search files'; this.style.color = 'lightgray'}"
-           onfocus="if (this.value == 'Search files') {this.value = ''; this.style.color = 'black'}">
-    <input type="submit" align="right" style="background: red; color: white; border-color: red" value="Browse files">
-    <input type="submit" align="right" style="background: red; color: white; border-color: red" value="Generate Phy Tree" disabled>
-    <a ng-href="{{ fileURL }}" style="background: dimgray; color: white;">Download</a>
-  </div>
-  <div class="scroll" style="overflow: auto; background: darkgrey; height: 500px">
-        <div class="container" style="padding-top: 10px; vertical-align: middle; text-align: center">
-      <div class="row">
-        <div class="col-sm-1 col-md-3 col-lg-2" ng-repeat="file in myApi">
-            <div ng-click='selected(this.file)' onclick="(this.style.color = 'red')" onblur="(this.style.color = 'black')" align="center" class="container-fluid">
-              <img name="fileImage" class="img-responsive" src="images/treeFile.png" alt="" style="height: 30%; width: 30%">
-              <h4 id="{{file}}">{{file}}</h4>
-            </div>
-        </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <input type="text" value="Search files" onblur="if (this.value == '') {this.value = 'Search files'; this.style.color = 'lightgray'}"
+            onfocus="if (this.value == 'Search files') {this.value = ''; this.style.color = 'black'}">
+        <input type="submit" align="right" style="background: red; color: white; border-color: red" value="Browse files">
+        <input type="submit" align="right" style="background: red; color: white; border-color: red" value="Generate Phy Tree" disabled>
+        <a ng-href="{{ fileURL }}" style="background: dimgray; color: white;"><input type="submit" id="btnDownload" align="right" style="background: red; color: white; border-color: red" value="Download file" disabled></a>
       </div>
+    </div>
+  </div>
+  <div class="scroll" ng-click="selected.forEach(unselect)" style="overflow: auto; background: darkgrey; height: 500px">
+      <div class="container" style="padding-top: 10px; vertical-align: middle; text-align: center">
+        <div class="row">
+          <div class="col-sm-3 col-md-3 col-lg-2 col-xs-6" ng-repeat="file in myApi">
+              <div ng-click='selected(this.file)' align="center" class="container-fluid">
+                <img id="img{{file}}" class="img-responsive" src="images/treeFile.png" alt="" style="height: 30%; width: 30%">
+                <h4 id="{{file}}">{{file}}</h4>
+              </div>
+          </div>
+        </div>
     </div>
   </div>
 </div>

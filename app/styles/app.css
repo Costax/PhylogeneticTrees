@@ -44,8 +44,9 @@ body {
 
 .navbar > .container .navbar-brand {
   color: white;
-  font-family: 'Sonsie One', 'cursive';
+  font-family: 'Verdana', 'Geneva', 'sans-serif';
   font-size: 2.5rem;
+  font-weight: bold;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -132,10 +133,7 @@ body {
   }
 }
 
-/*----------------------------------------------------------------------------------------------------------------------
-/// registration.html styles ///////////////////////////////////////////////////////////////////////////////////////////
-----------------------------------------------------------------------------------------------------------------------*/
-
+/* registration.html styles */
 div .form-box {
   padding: 20px;
   outline: 2px solid #ddd;

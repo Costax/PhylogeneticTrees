@@ -64,6 +64,16 @@ angular
         controller: 'RegistrationCtrl',
         controllerAs: 'registration'
       })
+      .when('/Login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'GeneratedTree'
+      })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'about'
+      })
       .otherwise({
         redirectTo: '/'
       });
