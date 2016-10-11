@@ -26,11 +26,12 @@
               <label for="pswd" class="ui-hidden-accessible">Password:</label>
               <input type="password" name="passw" id="pswd" placeholder="Password">
             </div>
+
             <div class="row" style="padding-top: 20px; padding-bottom: 20px;">
               <div class="container">
-              <button type="button" ng-click="click(this.file)" class="btn btn-default" data-dismiss="loginModal">Login</button>
-              <div class="divider"/>
-              <button type="button" class="btn btn-default" data-dismiss="loginModal">Register</button>
+                <button type="button" ng-click="click(this.file)" class="btn btn-default" data-dismiss="loginModal">Login</button>
+                <div class="divider"/>
+                <button type="button" id="registerBtn" onclick="window.location.href='#/Registration'" class="btn btn-default" data-dismiss="loginModal">Register</button>
               </div>
             </div>
           </div>
