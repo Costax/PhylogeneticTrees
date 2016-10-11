@@ -31,21 +31,42 @@ angular.module('phylogeneticTreesApp')
     });
 
     $scope.selected = function(id) {
-      $scope.fileURL = $scope.fileURL+id;
+
       if(selected.includes(id)){
         var index = selected.indexOf(id);
         selected.splice(index, 1);
         console.log(selected);
         var target = document.getElementById(id);
         target.style.color = 'black';
+        var imgTarget = document.getElementById("img" + id);
+        imgTarget.src = "images/treeFile.png"
+        $scope.fileURL = "https://s3.amazonaws.com/phivhubstorage/";
+        $scope.fileURL = $scope.fileURL+id;
+        var btnDownload = document.getElementById("btnDownload");
+        btnDownload.disabled = true;
       }
       else{
         selected.push(id);
+        selected.forEach(unselect);
         console.log(selected);
         var target = document.getElementById(id);
         target.style.color = 'red';
+        var imgTarget = document.getElementById("img" + id);
+        imgTarget.src = "images/treeFileSelected.png"
+        var btnDownload = document.getElementById("btnDownload");
+        btnDownload.disabled = false;
       }
 
+    }
+
+    function unselect(item, index) {
+      var target = document.getElementById(selected[index]);
+      if(target.style.color === 'red' && index != selected.length - 1)
+      {
+        target.style.color = 'black';
+        var imgTarget = document.getElementById("img" + selected[index]);
+        imgTarget.src = "images/treeFile.png"
+      }
     }
 
   });
