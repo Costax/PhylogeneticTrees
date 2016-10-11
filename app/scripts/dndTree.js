@@ -31,7 +31,7 @@
 
 // Get JSON data
 treeJSON = d3.json("flare.json", function(error, treeData) {
-
+  console.log('eee');
   // Calculate total nodes, max label length
   var totalNodes = 0;
   var maxLabelLength = 0;
@@ -44,7 +44,7 @@ treeJSON = d3.json("flare.json", function(error, treeData) {
   // Misc. variables
   var i = 0;
   var duration = 750;
-  var root;
+  // var root;
 
   // size of the diagram
   var viewerWidth = $(document).width() * 0.8;
@@ -73,6 +73,8 @@ treeJSON = d3.json("flare.json", function(error, treeData) {
         visit(children[i], visitFn, childrenFn);
       }
     }
+
+    console.log('visit');
   }
 
   // Call visit function to establish maxLabelLength
@@ -91,6 +93,7 @@ treeJSON = d3.json("flare.json", function(error, treeData) {
     tree.sort(function(a, b) {
       return b.name.toLowerCase() < a.name.toLowerCase() ? 1 : -1;
     });
+    console.log('sorted');
   }
   // Sort the tree initially incase the JSON isn't in a sorted order.
   sortTree();
@@ -543,9 +546,10 @@ treeJSON = d3.json("flare.json", function(error, treeData) {
   var svgGroup = baseSvg.append("g");
 
   // Define the root
-  root = treeData;
+  var root = treeData;
   root.x0 = viewerHeight / 2;
   root.y0 = 0;
+
 
   // Layout the tree initially and center on the root node.
   update(root);

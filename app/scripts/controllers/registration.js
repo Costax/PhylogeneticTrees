@@ -2,14 +2,13 @@
 
 /**
  * @ngdoc function
- * @name phylogeneticTreesApp.controller:GeneratedtreeCtrl
+ * @name phylogeneticTreesApp.controller:RegistrationCtrl
  * @description
- * # GeneratedtreeCtrl
+ * # RegistrationCtrl
  * Controller of the phylogeneticTreesApp
  */
-
 angular.module('phylogeneticTreesApp')
-  .controller('GeneratedtreeCtrl', function () {
+  .controller('RegistrationCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

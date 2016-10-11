@@ -1,0 +1,59 @@
+<div class="row">
+  <h1>Registration</h1>
+  <div class="col-xs-12 col-md-6 form-box">
+    <h2>Register here!</h2>
+    <form data-toggle="validator" role="form">
+      <div class="form-group">
+        <label for="registrationFisrtName" class="control-label">First and middle names</label>
+        <input type="text" class="form-control" id="registrationFisrtName" placeholder="Name(s)" required>
+        <div class="help-block with-errors">Required</div>
+      </div>
+      <div class="form-group">
+        <label for="registrationName" class="control-label">Last name(s)</label>
+        <input type="text" class="form-control" id="registrationName" placeholder="Last name(s)" required>
+        <div class="help-block with-errors">Required</div>
+      </div>
+      <div class="form-group">
+        <label for="registrationEmail" class="control-label">Email address</label>
+        <input type="email" class="form-control" id="registrationEmail" placeholder="Email" data-error="Invalid email!"
+               required>
+        <div class="help-block with-errors">Required</div>
+      </div>
+      <div class="form-group">
+        <label for="registrationPassword" class="control-label">Password</label>
+        <div class="form-inline row">
+          <div class="form-group col-sm-12 col-md-6">
+            <input type="password" data-minlength="6" class="form-control" id="registrationPassword" placeholder="Password"
+                   required>
+            <div class="help-block">Minimum of 6 characters</div>
+          </div>
+          <div class="form-group col-sm-12 col-md-6">
+            <input type="password" class="form-control" id="registrationPasswordConfirm" data-match="registrationPassword"
+                   data-match-error="Passwords do not match!" placeholder="Confirm" required>
+            <div class="help-block with-errors"></div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-default" ng-click="submitRegistration()">Submit</button>
+    </form>
+  </div>
+  <div class="col-xs-12 col-md-6 form-box">
+    <h2>Login</h2>
+    <form data-toggle="validator" role="form">
+      <div class="form-group">
+        <label for="loginEmail" class="control-label">Email address</label>
+        <input type="email" class="form-control" id="loginEmail" placeholder="Email"
+               data-error="Invalid email!"
+               required>
+        <div class="help-block with-errors"></div>
+      </div>
+      <div class="form-group">
+        <label for="loginPassword" class="control-label">Password</label>
+        <input type="password" class="form-control" id="loginPassword" placeholder="Password"
+               required>
+        <div class="help-block with-errors"></div>
+      </div>
+      <button type="submit" class="btn btn-default" ng-click="submitRegistration()">Submit</button>
+    </form>
+  </div>
+</div>

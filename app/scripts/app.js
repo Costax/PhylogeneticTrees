@@ -59,6 +59,11 @@ angular
         controller: 'GeneratedtreeCtrl',
         controllerAs: 'GeneratedTree'
       })
+      .when('/registration', {
+        templateUrl: 'views/registration.html',
+        controller: 'RegistrationCtrl',
+        controllerAs: 'registration'
+      })
       .when('/Login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
