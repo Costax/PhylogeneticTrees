@@ -1,9 +1,12 @@
 <h1>New Tree Generation</h1>
-<div class="w3-container" style="background: dimgray">
+<div ng-controller="FileuploadCtrl" class="w3-container" style="background: dimgray">
   <div class="container" style="padding-top: 8px; padding-bottom: 8px">
     <input type="text" value="Search files" onblur="if (this.value == '') {this.value = 'Search files';}"
            onfocus="if (this.value == 'Search files') {this.value = '';}">
-    <input type="submit" align="right" style="background: red; color: white; border-color: red" value="Browse files">
+    <form id="upload" name="upload" method="post" class="form" data-ng-submit="addFile()">
+      <input type="file" name="file" onchange="angular.element(this).scope().uploadedFile(this)" />
+      <button type="submit">Upload</button>
+    </form>
     <input type="submit" align="right" style="background: red; color: white; border-color: red" value="Generate Phy Tree" disabled>
   </div>
   <div class="scroll" style="vertical-align: middle; text-align: center; overflow: auto; background: darkgrey; height: 500px">
