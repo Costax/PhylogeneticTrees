@@ -3,3 +3,9 @@
 /.tmp
 /.sass-cache
 /bower_components
+/.idea
+/.idea/PhylogeneticTrees.iml
+/.idea/jsLibraryMappings.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
