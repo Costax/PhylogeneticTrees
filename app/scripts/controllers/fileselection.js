@@ -26,7 +26,7 @@ angular.module('phylogeneticTreesApp')
         // Variables should have a more descriptive name. "myApi" does not really represent the content of the variable.
         $scope.myApi = data;
       }).error(function (error) {
-      // Now that you are moving to a more "profesional" application you want to display errores or messages in a better way than just alert()
+      // Now that you are moving to a more "professional" application you want to display errors or messages in a better way than just alert()
       alert(error);
     });
 
@@ -68,6 +68,54 @@ angular.module('phylogeneticTreesApp')
         imgTarget.src = "images/treeFile.png"
       }
     }
+
+    $scope.uploadedFile = function(element){
+      $scope.$apply(function($scope){
+        $scope.files = element.files;
+      })
+    };
+
+    $scope.addFile = function(){
+      $scope.uploadFile($scope.files)
+    };
+
+    $scope.uploadFile = function(files){
+      for(var i = 0; i < files.length; i++){
+        var formData = new FormData();
+        var file = files[i];
+        console.log(file);
+        var key = file.name;
+        var type = file.type.replace('/', '%2F');
+        formData.append(key, file);
+        $.ajax({
+          type: "GET",
+          url: signedUrlEndpoint + key + '/multipart%2Fform-data'
+        }).done(
+          function(getResponse){
+            console.log(getResponse);
+            $.ajax({
+              type: "PUT",
+              url: getResponse,
+              data: formData,
+              processData: false,
+              contentType: "multipart/form-data",
+              transformRequest: angular.identity
+            }).done(
+              function(putResponse){
+                console.log(putResponse);
+              })
+          })
+      }
+    };
+
+    $('input:file').change(
+      function(e){
+        var fileLabel = document.getElementById("fileNameLabel");
+        fileLabel.innerHTML = e.target.files[0].name;
+
+        var upload = document.getElementById("fileUploadInput");
+        upload.disabled = false;
+      });
 
   });
 

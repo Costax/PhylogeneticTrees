@@ -19,9 +19,6 @@ angular.module('phylogeneticTreesApp')
       var header = document.getElementById("treeGenOptionHeader");
       header.style.display = "";
 
-      var header = document.getElementById("fileOptionHeader");
-      header.style.display = "";
-
       var homeHeaderTitle = document.getElementById("homeHeader");
       homeHeaderTitle.style.display = "";
 

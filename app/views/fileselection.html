@@ -2,12 +2,19 @@
 <div class="w3-container" style="background: dimgray">
   <div class="container" style="padding-top: 8px; padding-bottom: 8px; color: lightgray">
     <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: inline-block;">
         <input type="text" value="Search files" onblur="if (this.value == '') {this.value = 'Search files'; this.style.color = 'lightgray'}"
             onfocus="if (this.value == 'Search files') {this.value = ''; this.style.color = 'black'}">
-        <input type="submit" align="right" style="background: red; color: white; border-color: red" value="Browse files">
-        <input type="submit" align="right" style="background: red; color: white; border-color: red" value="Generate Phy Tree" disabled>
+        <label class="button" id="browseFileLabel" for="browseFileInput">Browse File</label>
+        <label id="fileNameLabel" style="display: inline;width: 20%; padding-right: 25px" type="text">No selected file</label>
+        <label class="button" id="uploadFileLabel" for="fileUploadInput">Upload</label>
         <a ng-href="{{ fileURL }}" style="background: dimgray; color: white;"><input type="submit" id="btnDownload" align="right" style="background: red; color: white; border-color: red" value="Download file" disabled></a>
+        <input id="genPhyTreeInput" type="submit" align="right" style="background: red; color: white; border-color: red" value="Generate PhyTree" disabled>
+        <!-- Form not visible due to formatting -->
+        <form id="submit" name="upload" method="post" class="form" data-ng-submit="addFile()">
+          <input type="file" id="browseFileInput" name="file" onchange="angular.element(this).scope().uploadedFile(this)" />
+          <input type="submit" id="fileUploadInput" value="Upload" disabled/>
+        </form>
       </div>
     </div>
   </div>
