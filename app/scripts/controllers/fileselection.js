@@ -39,7 +39,7 @@ angular.module('phylogeneticTreesApp')
         var target = document.getElementById(id);
         target.style.color = 'black';
         var imgTarget = document.getElementById("img" + id);
-        imgTarget.src = "images/treeFile.png"
+        imgTarget.src = "images/treeFile.png";
         $scope.fileURL = "https://s3.amazonaws.com/phivhubstorage/";
         $scope.fileURL = $scope.fileURL+id;
         var btnDownload = document.getElementById("btnDownload");
@@ -52,31 +52,31 @@ angular.module('phylogeneticTreesApp')
         var target = document.getElementById(id);
         target.style.color = 'red';
         var imgTarget = document.getElementById("img" + id);
-        imgTarget.src = "images/treeFileSelected.png"
+        imgTarget.src = "images/treeFileSelected.png";
         var btnDownload = document.getElementById("btnDownload");
         btnDownload.disabled = false;
       }
 
-    }
+    };
 
     function unselect(item, index) {
       var target = document.getElementById(selected[index]);
-      if(target.style.color === 'red' && index != selected.length - 1)
+      if(target.style.color === 'red' && index !== selected.length - 1)
       {
         target.style.color = 'black';
         var imgTarget = document.getElementById("img" + selected[index]);
-        imgTarget.src = "images/treeFile.png"
+        imgTarget.src = "images/treeFile.png";
       }
-    }
+    };
 
     $scope.uploadedFile = function(element){
       $scope.$apply(function($scope){
         $scope.files = element.files;
-      })
+      });
     };
 
     $scope.addFile = function(){
-      $scope.uploadFile($scope.files)
+      $scope.uploadFile($scope.files);
     };
 
     $scope.uploadFile = function(files){
@@ -86,6 +86,7 @@ angular.module('phylogeneticTreesApp')
         console.log(file);
         var key = file.name;
         var type = file.type.replace('/', '%2F');
+
         formData.append(key, file);
         $.ajax({
           type: "GET",
@@ -103,8 +104,8 @@ angular.module('phylogeneticTreesApp')
             }).done(
               function(putResponse){
                 console.log(putResponse);
-              })
-          })
+              });
+          });
       }
     };
 
@@ -118,4 +119,3 @@ angular.module('phylogeneticTreesApp')
       });
 
   });
-

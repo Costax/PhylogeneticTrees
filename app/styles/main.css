@@ -189,3 +189,11 @@ body {
   position: absolute;
   z-index: -1;
 }
+
+h2 {
+  font-size: 3.0vh;
+}
+
+p {
+  font-size: 1vmin;
+}
